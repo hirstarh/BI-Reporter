@@ -79,11 +79,15 @@ namespace BI_Reporter
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnAmend = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bI_Reporter_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -386,11 +390,11 @@ namespace BI_Reporter
             this.ageDataGridViewTextBoxColumn,
             this.telNoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.addressDetailsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(606, 139);
+            this.dataGridView1.Location = new System.Drawing.Point(606, 245);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1658, 599);
+            this.dataGridView1.Size = new System.Drawing.Size(1353, 607);
             this.dataGridView1.TabIndex = 17;
             // 
             // nameDataGridViewTextBoxColumn
@@ -459,7 +463,7 @@ namespace BI_Reporter
             // 
             // clkDataDelete
             // 
-            this.clkDataDelete.Location = new System.Drawing.Point(1252, 775);
+            this.clkDataDelete.Location = new System.Drawing.Point(735, 30);
             this.clkDataDelete.Name = "clkDataDelete";
             this.clkDataDelete.Size = new System.Drawing.Size(294, 74);
             this.clkDataDelete.TabIndex = 18;
@@ -469,7 +473,7 @@ namespace BI_Reporter
             // 
             // txtCloseApp
             // 
-            this.txtCloseApp.Location = new System.Drawing.Point(2020, 775);
+            this.txtCloseApp.Location = new System.Drawing.Point(2309, 951);
             this.txtCloseApp.Name = "txtCloseApp";
             this.txtCloseApp.Size = new System.Drawing.Size(235, 74);
             this.txtCloseApp.TabIndex = 19;
@@ -496,7 +500,7 @@ namespace BI_Reporter
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(606, 775);
+            this.btnInsert.Location = new System.Drawing.Point(100, 30);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(294, 74);
             this.btnInsert.TabIndex = 22;
@@ -506,7 +510,7 @@ namespace BI_Reporter
             // 
             // btnAmend
             // 
-            this.btnAmend.Location = new System.Drawing.Point(935, 775);
+            this.btnAmend.Location = new System.Drawing.Point(422, 30);
             this.btnAmend.Name = "btnAmend";
             this.btnAmend.Size = new System.Drawing.Size(294, 74);
             this.btnAmend.TabIndex = 23;
@@ -514,17 +518,47 @@ namespace BI_Reporter
             this.btnAmend.UseVisualStyleBackColor = true;
             this.btnAmend.Click += new System.EventHandler(this.btnAmend_Click_1);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(606, 82);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1221, 122);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnInsert);
+            this.groupBox2.Controls.Add(this.btnAmend);
+            this.groupBox2.Controls.Add(this.clkDataDelete);
+            this.groupBox2.Location = new System.Drawing.Point(606, 889);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1190, 146);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(2015, 427);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(497, 323);
+            this.groupBox3.TabIndex = 26;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2579, 1149);
-            this.Controls.Add(this.btnAmend);
-            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCloseApp);
-            this.Controls.Add(this.clkDataDelete);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtTelNo);
             this.Controls.Add(this.label8);
@@ -552,6 +586,7 @@ namespace BI_Reporter
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -607,6 +642,9 @@ namespace BI_Reporter
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnAmend;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 
