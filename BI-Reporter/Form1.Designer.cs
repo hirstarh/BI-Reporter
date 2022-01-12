@@ -100,6 +100,7 @@ namespace BI_Reporter
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bI_Reporter_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -575,6 +576,7 @@ namespace BI_Reporter
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnLogin);
             this.groupBox3.Controls.Add(this.txtPassword);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.txtUserName);
@@ -730,6 +732,15 @@ namespace BI_Reporter
             this.txtPassword.Size = new System.Drawing.Size(257, 31);
             this.txtPassword.TabIndex = 3;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(184, 243);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(240, 52);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Log In";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -850,6 +861,7 @@ namespace BI_Reporter
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnLogin;
     }
 }
 
