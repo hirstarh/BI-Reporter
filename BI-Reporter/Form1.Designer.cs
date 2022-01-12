@@ -101,6 +101,7 @@ namespace BI_Reporter
             this.label18 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bI_Reporter_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -411,7 +412,7 @@ namespace BI_Reporter
             this.ageDataGridViewTextBoxColumn,
             this.telNoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.addressDetailsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(606, 241);
+            this.dataGridView1.Location = new System.Drawing.Point(606, 356);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -494,7 +495,7 @@ namespace BI_Reporter
             // 
             // txtCloseApp
             // 
-            this.txtCloseApp.Location = new System.Drawing.Point(2309, 951);
+            this.txtCloseApp.Location = new System.Drawing.Point(1286, 30);
             this.txtCloseApp.Name = "txtCloseApp";
             this.txtCloseApp.Size = new System.Drawing.Size(235, 74);
             this.txtCloseApp.TabIndex = 19;
@@ -541,6 +542,7 @@ namespace BI_Reporter
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtSearchTelNo);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.txtSearchAge);
@@ -557,7 +559,7 @@ namespace BI_Reporter
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(606, 82);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1906, 122);
+            this.groupBox1.Size = new System.Drawing.Size(1906, 245);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Filters";
@@ -567,9 +569,10 @@ namespace BI_Reporter
             this.groupBox2.Controls.Add(this.btnInsert);
             this.groupBox2.Controls.Add(this.btnAmend);
             this.groupBox2.Controls.Add(this.clkDataDelete);
-            this.groupBox2.Location = new System.Drawing.Point(606, 889);
+            this.groupBox2.Controls.Add(this.txtCloseApp);
+            this.groupBox2.Location = new System.Drawing.Point(606, 982);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1190, 146);
+            this.groupBox2.Size = new System.Drawing.Size(1537, 146);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Insert/Amend/Delete";
@@ -741,6 +744,15 @@ namespace BI_Reporter
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(619, 147);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(471, 70);
+            this.btnSearch.TabIndex = 27;
+            this.btnSearch.Text = "Start Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -752,7 +764,6 @@ namespace BI_Reporter
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtCloseApp);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtTelNo);
             this.Controls.Add(this.label8);
@@ -862,6 +873,7 @@ namespace BI_Reporter
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 
