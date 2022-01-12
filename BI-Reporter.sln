@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BI-Reporter", "BI-Reporter\BI-Reporter.csproj", "{F2D12F37-174B-49B5-B648-874765D1581E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2D12F37-174B-49B5-B648-874765D1581E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D12F37-174B-49B5-B648-874765D1581E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D12F37-174B-49B5-B648-874765D1581E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D12F37-174B-49B5-B648-874765D1581E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63E3CC11-A87D-4BA5-A310-824E83641A86}
+	EndGlobalSection
+EndGlobal
