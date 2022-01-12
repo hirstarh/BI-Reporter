@@ -120,7 +120,7 @@ namespace BI_Reporter
         {
             string Message = "Do you want to close the application down";
             string caption = "App closure";
-            var result = MessageBox.Show(Message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var result = MessageBox.Show(Message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
