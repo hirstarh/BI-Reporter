@@ -10,3 +10,4 @@ C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\bin\Debug\System.Data.SqlCli
 C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.csproj.CopyComplete
 C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.exe
 C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.pdb
+C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.csproj.AssemblyReference.cache

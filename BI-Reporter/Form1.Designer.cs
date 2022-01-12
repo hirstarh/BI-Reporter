@@ -752,6 +752,7 @@ namespace BI_Reporter
             this.btnSearch.TabIndex = 27;
             this.btnSearch.Text = "Start Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Form1
             // 
