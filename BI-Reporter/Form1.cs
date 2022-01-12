@@ -254,5 +254,7 @@ namespace BI_Reporter
 
             MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        
     }
 }
