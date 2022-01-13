@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
@@ -80,6 +80,7 @@ namespace BI_Reporter
             command.Parameters.AddWithValue("@TelNo", TelNo);
             cnn.Open();
             command.ExecuteNonQuery();
+            dataGridView1.Refresh();
 
             command.Dispose();
             cnn.Close();
@@ -93,7 +94,8 @@ namespace BI_Reporter
 
         private void clkDataDelete_Click(object sender, EventArgs e)
         {
-            ID = txtID.Text; 
+            ID = txtID.Text;
+            Name = txtName.Text;
             string message = $"WARNING! - You are Deleting the record for {Name}, do you want to proceed";
             String caption = "Data to be deleted";
             string connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE; User=AHirst;Password=Coniston125";
@@ -106,13 +108,20 @@ namespace BI_Reporter
             {
                 SqlConnection cnn = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(deleteSqlRow, cnn);
-
-                command.Parameters.AddWithValue("@ID", ID);
                 cnn.Open();
+                command.Parameters.AddWithValue("@ID", ID);
+                
                 command.ExecuteNonQuery();
+                dataGridView1.Update();
+                dataGridView1.Refresh(); 
+
+                
                 MessageBox.Show($"Entry ID record {ID} deleted from the database");
+
                 command.Dispose();
                 cnn.Close();
+                this.Form1_Load(this, EventArgs.Empty);
+
             }
         }
 
@@ -173,7 +182,6 @@ namespace BI_Reporter
             MessageBox.Show($"Data for {Name} Entered", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-
         }
 
         
@@ -209,6 +217,7 @@ namespace BI_Reporter
             command.Parameters.AddWithValue("@TelNo", TelNo);
             cnn.Open();
             command.ExecuteNonQuery();
+            dataGridView1.Refresh();
 
             command.Dispose();
             cnn.Close();
@@ -248,6 +257,7 @@ namespace BI_Reporter
             command.Parameters.AddWithValue("@TelNo", TelNo);
             cnn.Open();
             command.ExecuteNonQuery();
+            dataGridView1.Refresh();
 
             command.Dispose();
             cnn.Close();
@@ -257,30 +267,53 @@ namespace BI_Reporter
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-          /*  private void searchbutton_Click(object sender, EventArgs e)
-            {
-                string searchValue = searchtextBox.Text;
+
+            ArrayList searchList = new ArrayList();
+                searchList.Add(txtSearchName.Text);
+                searchList.Add(txtSearchAdd1.Text);
+                searchList.Add(txtSearchAdd2.Text);
+                searchList.Add(txtSearchTownC.Text);
+                searchList.Add(txtSearchCounty.Text);
+                searchList.Add(txtSearchAge.Text);
+                searchList.Add(txtSearchTelNo.Text);
+
+            
+            string searchValue = txtSearchName.Text;
+                string message = $"Unable to find {searchValue} in the database";
+            string caption = "Record not found!";
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 try
                 {
                     bool valueResult = false;
+
+                foreach (var NameSearchItem in searchList)
+                {
+                    
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         for (int i = 0; i < row.Cells.Count; i++)
                         {
-                            if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().Equals(searchValue))
+                            
+                            if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().Equals(NameSearchItem))
                             {
+                                dataGridView1.ClearSelection();
                                 int rowIndex = row.Index;
                                 dataGridView1.Rows[rowIndex].Selected = true;
                                 valueResult = true;
                                 break;
                             }
+                            /*   else if ((string)searchList[0] == "")
+                           {
+                               MessageBox.Show("No data entered to search", "Data Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                               return;
+                           } */
                         }
 
                     }
+                }
                     if (!valueResult)
                     {
-                        MessageBox.Show("Unable to find " + searchtextBox.Text, "Not Found");
+                        MessageBox.Show(message,caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
@@ -288,7 +321,7 @@ namespace BI_Reporter
                 {
                     MessageBox.Show(exc.Message);
                 }
-            } */
+            
         }
     }
 }
