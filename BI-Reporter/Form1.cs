@@ -125,10 +125,10 @@ namespace BI_Reporter
             command.Parameters.AddWithValue("@TelNo", TelNo);
             cnn.Open();
             command.ExecuteNonQuery();
-            dataGridView1.Refresh();
-
+            
             command.Dispose();
             cnn.Close();
+            this.Form1_Load(this, EventArgs.Empty);
 
 
             MessageBox.Show($"Data for {Name} Entered", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -235,6 +235,90 @@ namespace BI_Reporter
                     MessageBox.Show(exc.Message);
                 }
             
+        }
+
+        private void filter_OnSearch(int flag)
+        {
+            string connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=Sandbox_BISE;User=AHirst;Password=Coniston125";
+            SqlConnection cnn = new SqlConnection(connectionString);
+            cnn.Open();
+
+            switch (flag)
+            {
+                case 1:
+                    string sqlCommand = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (Name LIKE @Search)";
+                    SqlCommand command = new SqlCommand(sqlCommand, cnn);
+                    command.Parameters.AddWithValue("@Search", "%" + txtSearchName.Text + "%");
+                    SqlDataAdapter socket1 = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    socket1.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                    break;
+               
+                case 2:
+                    string sqlCommand2 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (AddressLine1 LIKE @Search)";
+                    SqlCommand command2 = new SqlCommand(sqlCommand2, cnn);
+                    command2.Parameters.AddWithValue("@Search", "%" + txtSearchAdd1.Text + "%");
+                    SqlDataAdapter socket2 = new SqlDataAdapter(command2);
+                    DataTable dt2 = new DataTable();
+                    socket2.Fill(dt2);
+                    dataGridView1.DataSource = dt2;
+
+                    break;
+                case 3:
+                    string sqlCommand3 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (AddressLine2 LIKE @Search)";
+                    SqlCommand command3 = new SqlCommand(sqlCommand3, cnn);
+                    command3.Parameters.AddWithValue("@Search", "%" + txtSearchAdd2.Text + "%");
+                    SqlDataAdapter socket3 = new SqlDataAdapter(command3);
+                    DataTable dt3 = new DataTable();
+                    socket3.Fill(dt3);
+                    dataGridView1.DataSource = dt3;
+                    break;
+
+                case 4:
+                    string sqlCommand4 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (TownCity LIKE @Search)";
+                    SqlCommand command4 = new SqlCommand(sqlCommand4, cnn);
+                    command4.Parameters.AddWithValue("@Search", "%" + txtSearchTownC.Text + "%");
+                    SqlDataAdapter socket4 = new SqlDataAdapter(command4);
+                    DataTable dt4 = new DataTable();
+                    socket4.Fill(dt4);
+                    dataGridView1.DataSource = dt4;
+                    break;
+
+                case 5:
+                    string sqlCommand5 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (County LIKE @Search)";
+                    SqlCommand command5 = new SqlCommand(sqlCommand5, cnn);
+                    command5.Parameters.AddWithValue("@Search", "%" + txtSearchCounty.Text + "%");
+
+                    break;
+
+                case 6:
+                    string sqlCommand6 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (PostCode LIKE @Search)";
+                    SqlCommand command6 = new SqlCommand(sqlCommand6, cnn);
+                    command6.Parameters.AddWithValue("@Search", "%" + txtSearchAge.Text + "%");
+                    break;
+
+                case 7:
+                    string sqlCommand7 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (TelNo LIKE @Search)";
+                    SqlCommand command7 = new SqlCommand(sqlCommand7, cnn);
+                    command7.Parameters.AddWithValue("@Search", "%" + txtSearchTelNo.Text + "%");
+                    break;
+            }
+            
+            
+
+        }
+
+
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(1);
+
+        }
+
+        private void txtSearchAdd1_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(2);
         }
     }
 }
