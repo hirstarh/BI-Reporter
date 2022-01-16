@@ -81,7 +81,8 @@ namespace BI_Reporter
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnAmend = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearchPostCode = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtSearchTelNo = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtSearchAge = new System.Windows.Forms.TextBox();
@@ -103,8 +104,6 @@ namespace BI_Reporter
             this.label18 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtSearchPostCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bI_Reporter_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -551,7 +550,6 @@ namespace BI_Reporter
             // 
             this.groupBox1.Controls.Add(this.txtSearchPostCode);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtSearchTelNo);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.txtSearchAge);
@@ -568,20 +566,27 @@ namespace BI_Reporter
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(606, 82);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1906, 245);
+            this.groupBox1.Size = new System.Drawing.Size(1906, 219);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Filters";
             // 
-            // btnSearch
+            // txtSearchPostCode
             // 
-            this.btnSearch.Location = new System.Drawing.Point(619, 147);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(471, 70);
-            this.btnSearch.TabIndex = 27;
-            this.btnSearch.Text = "Start Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.txtSearchPostCode.Location = new System.Drawing.Point(1754, 83);
+            this.txtSearchPostCode.Name = "txtSearchPostCode";
+            this.txtSearchPostCode.Size = new System.Drawing.Size(131, 31);
+            this.txtSearchPostCode.TabIndex = 29;
+            this.txtSearchPostCode.TextChanged += new System.EventHandler(this.txtSearchPostCode_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1629, 83);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(106, 25);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "PostCode";
             // 
             // txtSearchTelNo
             // 
@@ -770,23 +775,6 @@ namespace BI_Reporter
             this.label17.TabIndex = 0;
             this.label17.Text = "User Name";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1629, 83);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(106, 25);
-            this.label19.TabIndex = 28;
-            this.label19.Text = "PostCode";
-            // 
-            // txtSearchPostCode
-            // 
-            this.txtSearchPostCode.Location = new System.Drawing.Point(1754, 83);
-            this.txtSearchPostCode.Name = "txtSearchPostCode";
-            this.txtSearchPostCode.Size = new System.Drawing.Size(131, 31);
-            this.txtSearchPostCode.TabIndex = 29;
-            this.txtSearchPostCode.TextChanged += new System.EventHandler(this.txtSearchPostCode_TextChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -899,7 +887,6 @@ namespace BI_Reporter
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.BindingSource addressDetailsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

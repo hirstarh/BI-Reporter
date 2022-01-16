@@ -175,68 +175,7 @@ namespace BI_Reporter
         }
 
         /* Search method routine */
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-            ArrayList searchList = new ArrayList();
-            searchList.Add(txtSearchName.Text);
-            searchList.Add(txtSearchAdd1.Text);
-            searchList.Add(txtSearchAdd2.Text);
-            searchList.Add(txtSearchTownC.Text);
-            searchList.Add(txtSearchCounty.Text);
-            searchList.Add(txtSearchAge.Text);
-            searchList.Add(txtSearchTelNo.Text);
-
-
-            string searchValue = txtSearchName.Text;
-            string message = $"Unable to find {searchValue} in the database";
-            string caption = "Record not found!";
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            try
-            {
-                bool valueResult = false;
-
-                foreach (var NameSearchItem in searchList)
-                {
-
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        for (int i = 0; i < row.Cells.Count; i++)
-                        {
-
-                            if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().Equals(NameSearchItem))
-                            {
-                                dataGridView1.ClearSelection();
-                                int rowIndex = row.Index;
-                                dataGridView1.Rows[rowIndex].Selected = true;
-                                valueResult = true;
-                                /* this.addressDetailsTableAdapter.Fill(this.bI_Reporter_DataSet.AddressDetails); */
-                                break;
-                            }
-                            /*   else if ((string)searchList[0] == "")
-                           {
-                               MessageBox.Show("No data entered to search", "Data Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                               return;
-                           } */
-                        }
-
-                    }
-                }
-                if (!valueResult)
-                {
-                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-            }
-
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-
-        }
-
+              
         private void filter_OnSearch(int flag)
         {
             string connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=Sandbox_BISE;User=AHirst;Password=Coniston125";
@@ -297,7 +236,7 @@ namespace BI_Reporter
                     break;
 
                 case 6:
-                    string sqlCommand6 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (PostCode LIKE @Search)";
+                    string sqlCommand6 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (Age LIKE @Search)";
                     SqlCommand command6 = new SqlCommand(sqlCommand6, cnn);
                     command6.Parameters.AddWithValue("@Search", "%" + txtSearchAge.Text + "%");
                     SqlDataAdapter socket6 = new SqlDataAdapter(command6);
