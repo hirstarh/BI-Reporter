@@ -64,6 +64,15 @@ namespace BI_Reporter
             this.label8 = new System.Windows.Forms.Label();
             this.txtTelNo = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressLine1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressLine2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.townCityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDetailsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clkDataDelete = new System.Windows.Forms.Button();
             this.btnCloseApp = new System.Windows.Forms.Button();
@@ -94,15 +103,8 @@ namespace BI_Reporter
             this.label18 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressLine1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressLine2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.townCityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtSearchPostCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bI_Reporter_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -410,6 +412,79 @@ namespace BI_Reporter
             this.dataGridView1.Size = new System.Drawing.Size(1403, 608);
             this.dataGridView1.TabIndex = 17;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // addressLine1DataGridViewTextBoxColumn
+            // 
+            this.addressLine1DataGridViewTextBoxColumn.DataPropertyName = "AddressLine1";
+            this.addressLine1DataGridViewTextBoxColumn.HeaderText = "AddressLine1";
+            this.addressLine1DataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.addressLine1DataGridViewTextBoxColumn.Name = "addressLine1DataGridViewTextBoxColumn";
+            this.addressLine1DataGridViewTextBoxColumn.Width = 200;
+            // 
+            // addressLine2DataGridViewTextBoxColumn
+            // 
+            this.addressLine2DataGridViewTextBoxColumn.DataPropertyName = "AddressLine2";
+            this.addressLine2DataGridViewTextBoxColumn.HeaderText = "AddressLine2";
+            this.addressLine2DataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.addressLine2DataGridViewTextBoxColumn.Name = "addressLine2DataGridViewTextBoxColumn";
+            this.addressLine2DataGridViewTextBoxColumn.Width = 200;
+            // 
+            // townCityDataGridViewTextBoxColumn
+            // 
+            this.townCityDataGridViewTextBoxColumn.DataPropertyName = "TownCity";
+            this.townCityDataGridViewTextBoxColumn.HeaderText = "TownCity";
+            this.townCityDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.townCityDataGridViewTextBoxColumn.Name = "townCityDataGridViewTextBoxColumn";
+            this.townCityDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // countyDataGridViewTextBoxColumn
+            // 
+            this.countyDataGridViewTextBoxColumn.DataPropertyName = "County";
+            this.countyDataGridViewTextBoxColumn.HeaderText = "County";
+            this.countyDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.countyDataGridViewTextBoxColumn.Name = "countyDataGridViewTextBoxColumn";
+            this.countyDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // postCodeDataGridViewTextBoxColumn
+            // 
+            this.postCodeDataGridViewTextBoxColumn.DataPropertyName = "PostCode";
+            this.postCodeDataGridViewTextBoxColumn.HeaderText = "PostCode";
+            this.postCodeDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.postCodeDataGridViewTextBoxColumn.Name = "postCodeDataGridViewTextBoxColumn";
+            this.postCodeDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // telNoDataGridViewTextBoxColumn
+            // 
+            this.telNoDataGridViewTextBoxColumn.DataPropertyName = "TelNo";
+            this.telNoDataGridViewTextBoxColumn.HeaderText = "TelNo";
+            this.telNoDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.telNoDataGridViewTextBoxColumn.Name = "telNoDataGridViewTextBoxColumn";
+            this.telNoDataGridViewTextBoxColumn.Width = 200;
+            // 
             // addressDetailsBindingSource1
             // 
             this.addressDetailsBindingSource1.DataMember = "AddressDetails";
@@ -474,6 +549,8 @@ namespace BI_Reporter
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtSearchPostCode);
+            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtSearchTelNo);
             this.groupBox1.Controls.Add(this.label16);
@@ -508,15 +585,16 @@ namespace BI_Reporter
             // 
             // txtSearchTelNo
             // 
-            this.txtSearchTelNo.Location = new System.Drawing.Point(1785, 74);
+            this.txtSearchTelNo.Location = new System.Drawing.Point(1710, 150);
             this.txtSearchTelNo.Name = "txtSearchTelNo";
-            this.txtSearchTelNo.Size = new System.Drawing.Size(115, 31);
+            this.txtSearchTelNo.Size = new System.Drawing.Size(175, 31);
             this.txtSearchTelNo.TabIndex = 13;
+            this.txtSearchTelNo.TextChanged += new System.EventHandler(this.txtSearchTelNo_TextChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1703, 77);
+            this.label16.Location = new System.Drawing.Point(1629, 150);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(75, 25);
             this.label16.TabIndex = 12;
@@ -524,15 +602,16 @@ namespace BI_Reporter
             // 
             // txtSearchAge
             // 
-            this.txtSearchAge.Location = new System.Drawing.Point(1579, 74);
+            this.txtSearchAge.Location = new System.Drawing.Point(1499, 83);
             this.txtSearchAge.Name = "txtSearchAge";
             this.txtSearchAge.Size = new System.Drawing.Size(100, 31);
             this.txtSearchAge.TabIndex = 11;
+            this.txtSearchAge.TextChanged += new System.EventHandler(this.txtSearchAge_TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1523, 71);
+            this.label15.Location = new System.Drawing.Point(1443, 83);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(50, 25);
             this.label15.TabIndex = 10;
@@ -540,15 +619,16 @@ namespace BI_Reporter
             // 
             // txtSearchCounty
             // 
-            this.txtSearchCounty.Location = new System.Drawing.Point(1395, 71);
+            this.txtSearchCounty.Location = new System.Drawing.Point(1324, 77);
             this.txtSearchCounty.Name = "txtSearchCounty";
             this.txtSearchCounty.Size = new System.Drawing.Size(100, 31);
             this.txtSearchCounty.TabIndex = 9;
+            this.txtSearchCounty.TextChanged += new System.EventHandler(this.txtSearchCounty_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1295, 74);
+            this.label14.Location = new System.Drawing.Point(1238, 80);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 25);
             this.label14.TabIndex = 8;
@@ -556,15 +636,16 @@ namespace BI_Reporter
             // 
             // txtSearchTownC
             // 
-            this.txtSearchTownC.Location = new System.Drawing.Point(1107, 71);
+            this.txtSearchTownC.Location = new System.Drawing.Point(1050, 77);
             this.txtSearchTownC.Name = "txtSearchTownC";
             this.txtSearchTownC.Size = new System.Drawing.Size(170, 31);
             this.txtSearchTownC.TabIndex = 7;
+            this.txtSearchTownC.TextChanged += new System.EventHandler(this.txtSearchTownC_TextChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1000, 77);
+            this.label13.Location = new System.Drawing.Point(943, 83);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(101, 25);
             this.label13.TabIndex = 6;
@@ -572,15 +653,16 @@ namespace BI_Reporter
             // 
             // txtSearchAdd2
             // 
-            this.txtSearchAdd2.Location = new System.Drawing.Point(803, 71);
+            this.txtSearchAdd2.Location = new System.Drawing.Point(750, 77);
             this.txtSearchAdd2.Name = "txtSearchAdd2";
             this.txtSearchAdd2.Size = new System.Drawing.Size(175, 31);
             this.txtSearchAdd2.TabIndex = 5;
+            this.txtSearchAdd2.TextChanged += new System.EventHandler(this.txtSearchAdd2_TextChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(653, 74);
+            this.label12.Location = new System.Drawing.Point(600, 80);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(144, 25);
             this.label12.TabIndex = 4;
@@ -588,15 +670,16 @@ namespace BI_Reporter
             // 
             // txtSearchAdd1
             // 
-            this.txtSearchAdd1.Location = new System.Drawing.Point(443, 71);
+            this.txtSearchAdd1.Location = new System.Drawing.Point(400, 77);
             this.txtSearchAdd1.Name = "txtSearchAdd1";
             this.txtSearchAdd1.Size = new System.Drawing.Size(185, 31);
             this.txtSearchAdd1.TabIndex = 3;
+            this.txtSearchAdd1.TextChanged += new System.EventHandler(this.txtSearchAdd1_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(293, 74);
+            this.label11.Location = new System.Drawing.Point(250, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(144, 25);
             this.label11.TabIndex = 2;
@@ -604,17 +687,16 @@ namespace BI_Reporter
             // 
             // txtSearchName
             // 
-            this.txtSearchName.Location = new System.Drawing.Point(111, 74);
+            this.txtSearchName.Location = new System.Drawing.Point(80, 74);
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(161, 31);
             this.txtSearchName.TabIndex = 1;
             this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
-            this.txtSearchAdd1.TextChanged += new System.EventHandler(this.txtSearchAdd1_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(37, 77);
+            this.label10.Location = new System.Drawing.Point(6, 77);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 25);
             this.label10.TabIndex = 0;
@@ -688,78 +770,22 @@ namespace BI_Reporter
             this.label17.TabIndex = 0;
             this.label17.Text = "User Name";
             // 
-            // dataGridViewTextBoxColumn1
+            // label19
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(1629, 83);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(106, 25);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "PostCode";
             // 
-            // nameDataGridViewTextBoxColumn
+            // txtSearchPostCode
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // addressLine1DataGridViewTextBoxColumn
-            // 
-            this.addressLine1DataGridViewTextBoxColumn.DataPropertyName = "AddressLine1";
-            this.addressLine1DataGridViewTextBoxColumn.HeaderText = "AddressLine1";
-            this.addressLine1DataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.addressLine1DataGridViewTextBoxColumn.Name = "addressLine1DataGridViewTextBoxColumn";
-            this.addressLine1DataGridViewTextBoxColumn.Width = 200;
-            // 
-            // addressLine2DataGridViewTextBoxColumn
-            // 
-            this.addressLine2DataGridViewTextBoxColumn.DataPropertyName = "AddressLine2";
-            this.addressLine2DataGridViewTextBoxColumn.HeaderText = "AddressLine2";
-            this.addressLine2DataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.addressLine2DataGridViewTextBoxColumn.Name = "addressLine2DataGridViewTextBoxColumn";
-            this.addressLine2DataGridViewTextBoxColumn.Width = 200;
-            // 
-            // townCityDataGridViewTextBoxColumn
-            // 
-            this.townCityDataGridViewTextBoxColumn.DataPropertyName = "TownCity";
-            this.townCityDataGridViewTextBoxColumn.HeaderText = "TownCity";
-            this.townCityDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.townCityDataGridViewTextBoxColumn.Name = "townCityDataGridViewTextBoxColumn";
-            this.townCityDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // countyDataGridViewTextBoxColumn
-            // 
-            this.countyDataGridViewTextBoxColumn.DataPropertyName = "County";
-            this.countyDataGridViewTextBoxColumn.HeaderText = "County";
-            this.countyDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.countyDataGridViewTextBoxColumn.Name = "countyDataGridViewTextBoxColumn";
-            this.countyDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // postCodeDataGridViewTextBoxColumn
-            // 
-            this.postCodeDataGridViewTextBoxColumn.DataPropertyName = "PostCode";
-            this.postCodeDataGridViewTextBoxColumn.HeaderText = "PostCode";
-            this.postCodeDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.postCodeDataGridViewTextBoxColumn.Name = "postCodeDataGridViewTextBoxColumn";
-            this.postCodeDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            this.ageDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // telNoDataGridViewTextBoxColumn
-            // 
-            this.telNoDataGridViewTextBoxColumn.DataPropertyName = "TelNo";
-            this.telNoDataGridViewTextBoxColumn.HeaderText = "TelNo";
-            this.telNoDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.telNoDataGridViewTextBoxColumn.Name = "telNoDataGridViewTextBoxColumn";
-            this.telNoDataGridViewTextBoxColumn.Width = 200;
+            this.txtSearchPostCode.Location = new System.Drawing.Point(1754, 83);
+            this.txtSearchPostCode.Name = "txtSearchPostCode";
+            this.txtSearchPostCode.Size = new System.Drawing.Size(131, 31);
+            this.txtSearchPostCode.TabIndex = 29;
+            this.txtSearchPostCode.TextChanged += new System.EventHandler(this.txtSearchPostCode_TextChanged);
             // 
             // Form1
             // 
@@ -884,6 +910,8 @@ namespace BI_Reporter
         private System.Windows.Forms.DataGridViewTextBoxColumn postCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtSearchPostCode;
+        private System.Windows.Forms.Label label19;
     }
 }
 

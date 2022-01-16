@@ -11,27 +11,27 @@ using System.Windows.Forms;
 
 namespace BI_Reporter
 {
-    
+
     public partial class Form1 : Form
     {
         String ID;
         string Name;
         string AddressLine1;
         string AddressLine2;
-        string TownCity; 
-        string County; 
-        string PostCode; 
-        string Age; 
+        string TownCity;
+        string County;
+        string PostCode;
+        string Age;
         string TelNo;
-        
-        
 
-        
+
+
+
         public Form1()
         {
             InitializeComponent();
-             txtID.ReadOnly = true; 
-            
+            txtID.ReadOnly = true;
+
 
         }
 
@@ -42,31 +42,31 @@ namespace BI_Reporter
 
         }
 
-         /* Method to remove record from the database */      
-         private void clkDataDelete_Click(object sender, EventArgs e)
+        /* Method to remove record from the database */
+        private void clkDataDelete_Click(object sender, EventArgs e)
         {
-            ID = txtID.Text; 
+            ID = txtID.Text;
             Name = txtName.Text;
             string message = $"WARNING! - You are Deleting the record for {Name}, do you want to proceed";
             String caption = "Data to be deleted";
             string connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE; User=AHirst;Password=Coniston125";
             string deleteSqlRow = "DELETE FROM SANDBOX_BISE.[dbo].[AddressDetails] WHERE ID = @ID";
 
-            
+
             var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-         
+
             if (result == DialogResult.Yes)
             {
                 SqlConnection cnn = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(deleteSqlRow, cnn);
                 cnn.Open();
                 command.Parameters.AddWithValue("@ID", ID);
-                
+
                 command.ExecuteNonQuery();
                 dataGridView1.Update();
-                dataGridView1.Refresh(); 
+                dataGridView1.Refresh();
 
-                
+
                 MessageBox.Show($"Entry ID record {ID} deleted from the database");
 
                 command.Dispose();
@@ -87,12 +87,12 @@ namespace BI_Reporter
                 this.Close();
             }
         }
-        
+
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
             this.clkDataDelete_Click(this, EventArgs.Empty);
         }
-        
+
         /* Method to insert a new record into the database */
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace BI_Reporter
             command.Parameters.AddWithValue("@TelNo", TelNo);
             cnn.Open();
             command.ExecuteNonQuery();
-            
+
             command.Dispose();
             cnn.Close();
             this.Form1_Load(this, EventArgs.Empty);
@@ -180,38 +180,38 @@ namespace BI_Reporter
         {
 
             ArrayList searchList = new ArrayList();
-                searchList.Add(txtSearchName.Text);
-                searchList.Add(txtSearchAdd1.Text);
-                searchList.Add(txtSearchAdd2.Text);
-                searchList.Add(txtSearchTownC.Text);
-                searchList.Add(txtSearchCounty.Text);
-                searchList.Add(txtSearchAge.Text);
-                searchList.Add(txtSearchTelNo.Text);
+            searchList.Add(txtSearchName.Text);
+            searchList.Add(txtSearchAdd1.Text);
+            searchList.Add(txtSearchAdd2.Text);
+            searchList.Add(txtSearchTownC.Text);
+            searchList.Add(txtSearchCounty.Text);
+            searchList.Add(txtSearchAge.Text);
+            searchList.Add(txtSearchTelNo.Text);
 
-            
+
             string searchValue = txtSearchName.Text;
-                string message = $"Unable to find {searchValue} in the database";
+            string message = $"Unable to find {searchValue} in the database";
             string caption = "Record not found!";
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                try
-                {
-                    bool valueResult = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                bool valueResult = false;
 
                 foreach (var NameSearchItem in searchList)
                 {
-                    
+
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         for (int i = 0; i < row.Cells.Count; i++)
                         {
-                            
+
                             if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().Equals(NameSearchItem))
                             {
                                 dataGridView1.ClearSelection();
                                 int rowIndex = row.Index;
                                 dataGridView1.Rows[rowIndex].Selected = true;
                                 valueResult = true;
-                               /* this.addressDetailsTableAdapter.Fill(this.bI_Reporter_DataSet.AddressDetails); */
+                                /* this.addressDetailsTableAdapter.Fill(this.bI_Reporter_DataSet.AddressDetails); */
                                 break;
                             }
                             /*   else if ((string)searchList[0] == "")
@@ -223,18 +223,18 @@ namespace BI_Reporter
 
                     }
                 }
-                    if (!valueResult)
-                    {
-                        MessageBox.Show(message,caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
-                    }
-                }
-                
-                catch (Exception exc)
+                if (!valueResult)
                 {
-                    MessageBox.Show(exc.Message);
+                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
                 }
-            
+            }
+
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
         }
 
         private void filter_OnSearch(int flag)
@@ -254,7 +254,7 @@ namespace BI_Reporter
                     socket1.Fill(dt);
                     dataGridView1.DataSource = dt;
                     break;
-               
+
                 case 2:
                     string sqlCommand2 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (AddressLine1 LIKE @Search)";
                     SqlCommand command2 = new SqlCommand(sqlCommand2, cnn);
@@ -315,13 +315,20 @@ namespace BI_Reporter
                     socket7.Fill(dt7);
                     dataGridView1.DataSource = dt7;
                     break;
+
+                case 8:
+                    string sqlCommand8 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (PostCode LIKE @Search)";
+                    SqlCommand command8 = new SqlCommand(sqlCommand8, cnn);
+                    command8.Parameters.AddWithValue("@Search", "%" + txtSearchPostCode.Text + "%");
+                    SqlDataAdapter socket8 = new SqlDataAdapter(command8);
+                    DataTable dt8 = new DataTable();
+                    socket8.Fill(dt8);
+                    dataGridView1.DataSource = dt8;
+                    break;
+
             }
-            
-            
 
         }
-
-
         private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
             this.filter_OnSearch(1);
@@ -331,6 +338,34 @@ namespace BI_Reporter
         private void txtSearchAdd1_TextChanged(object sender, EventArgs e)
         {
             this.filter_OnSearch(2);
+        }
+
+        private void txtSearchAdd2_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(3);
+        }
+
+        private void txtSearchTownC_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(4);
+        }
+
+        private void txtSearchCounty_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(5);
+        }
+
+        private void txtSearchAge_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(6);
+        }
+        private void txtSearchTelNo_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(7);
+        }
+        private void txtSearchPostCode_TextChanged(object sender, EventArgs e)
+        {
+            this.filter_OnSearch(8);
         }
     }
 }
