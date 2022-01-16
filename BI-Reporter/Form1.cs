@@ -86,6 +86,7 @@ namespace BI_Reporter
             {
                 this.Close();
             }
+            
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -189,7 +190,7 @@ namespace BI_Reporter
                     SqlCommand command = new SqlCommand(sqlCommand, cnn);
                     command.Parameters.AddWithValue("@Search", "%" + txtSearchName.Text + "%");
                     SqlDataAdapter socket1 = new SqlDataAdapter(command);
-                    DataTable dt = new DataTable();
+                    DataTable dt = new DataTable(); 
                     socket1.Fill(dt);
                     dataGridView1.DataSource = dt;
                     break;
