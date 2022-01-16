@@ -306,5 +306,7 @@ namespace BI_Reporter
         {
             this.filter_OnSearch(8);
         }
+
+        
     }
 }
