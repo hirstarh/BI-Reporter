@@ -47,7 +47,6 @@ namespace BI_Reporter
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.addressDetailsTableAdapter = new BI_Reporter.BI_Reporter_DataSetTableAdapters.AddressDetailsTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,40 +72,42 @@ namespace BI_Reporter
             this.postCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDetailsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clkDataDelete = new System.Windows.Forms.Button();
-            this.txtCloseApp = new System.Windows.Forms.Button();
+            this.btnCloseApp = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnAmend = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearchTelNo = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtSearchAge = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtSearchCounty = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtSearchTownC = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtSearchAdd2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtSearchAdd1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtSearchName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtSearchAdd1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtSearchAdd2 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtSearchTownC = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtSearchCounty = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtSearchAge = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtSearchTelNo = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bI_Reporter_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -158,7 +159,6 @@ namespace BI_Reporter
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.toolStripButton1,
             this.toolStripTextBox1});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -179,7 +179,6 @@ namespace BI_Reporter
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(46, 36);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -258,16 +257,6 @@ namespace BI_Reporter
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 42);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(46, 36);
-            this.toolStripButton1.Text = "Add Data";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripTextBox1
             // 
@@ -416,7 +405,7 @@ namespace BI_Reporter
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1353, 607);
+            this.dataGridView1.Size = new System.Drawing.Size(1403, 592);
             this.dataGridView1.TabIndex = 17;
             // 
             // nameDataGridViewTextBoxColumn
@@ -483,6 +472,11 @@ namespace BI_Reporter
             this.telNoDataGridViewTextBoxColumn.Name = "telNoDataGridViewTextBoxColumn";
             this.telNoDataGridViewTextBoxColumn.Width = 200;
             // 
+            // addressDetailsBindingSource1
+            // 
+            this.addressDetailsBindingSource1.DataMember = "AddressDetails";
+            this.addressDetailsBindingSource1.DataSource = this.bI_Reporter_DataSet;
+            // 
             // clkDataDelete
             // 
             this.clkDataDelete.Location = new System.Drawing.Point(735, 30);
@@ -493,15 +487,15 @@ namespace BI_Reporter
             this.clkDataDelete.UseVisualStyleBackColor = true;
             this.clkDataDelete.Click += new System.EventHandler(this.clkDataDelete_Click);
             // 
-            // txtCloseApp
+            // btnCloseApp
             // 
-            this.txtCloseApp.Location = new System.Drawing.Point(1286, 30);
-            this.txtCloseApp.Name = "txtCloseApp";
-            this.txtCloseApp.Size = new System.Drawing.Size(235, 74);
-            this.txtCloseApp.TabIndex = 19;
-            this.txtCloseApp.Text = "Close Application";
-            this.txtCloseApp.UseVisualStyleBackColor = true;
-            this.txtCloseApp.Click += new System.EventHandler(this.txtCloseApp_Click);
+            this.btnCloseApp.Location = new System.Drawing.Point(1286, 30);
+            this.btnCloseApp.Name = "btnCloseApp";
+            this.btnCloseApp.Size = new System.Drawing.Size(235, 74);
+            this.btnCloseApp.TabIndex = 19;
+            this.btnCloseApp.Text = "Close Application";
+            this.btnCloseApp.UseVisualStyleBackColor = true;
+            this.btnCloseApp.Click += new System.EventHandler(this.btnCloseApp_Click);
             // 
             // label9
             // 
@@ -538,7 +532,7 @@ namespace BI_Reporter
             this.btnAmend.TabIndex = 23;
             this.btnAmend.Text = "Amend Record";
             this.btnAmend.UseVisualStyleBackColor = true;
-            this.btnAmend.Click += new System.EventHandler(this.btnAmend_Click_1);
+            this.btnAmend.Click += new System.EventHandler(this.btnAmend_Click);
             // 
             // groupBox1
             // 
@@ -564,12 +558,134 @@ namespace BI_Reporter
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Filters";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(619, 147);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(471, 70);
+            this.btnSearch.TabIndex = 27;
+            this.btnSearch.Text = "Start Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearchTelNo
+            // 
+            this.txtSearchTelNo.Location = new System.Drawing.Point(1785, 74);
+            this.txtSearchTelNo.Name = "txtSearchTelNo";
+            this.txtSearchTelNo.Size = new System.Drawing.Size(115, 31);
+            this.txtSearchTelNo.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1703, 77);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(75, 25);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Tel No";
+            // 
+            // txtSearchAge
+            // 
+            this.txtSearchAge.Location = new System.Drawing.Point(1579, 74);
+            this.txtSearchAge.Name = "txtSearchAge";
+            this.txtSearchAge.Size = new System.Drawing.Size(100, 31);
+            this.txtSearchAge.TabIndex = 11;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1523, 71);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(50, 25);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Age";
+            // 
+            // txtSearchCounty
+            // 
+            this.txtSearchCounty.Location = new System.Drawing.Point(1395, 71);
+            this.txtSearchCounty.Name = "txtSearchCounty";
+            this.txtSearchCounty.Size = new System.Drawing.Size(100, 31);
+            this.txtSearchCounty.TabIndex = 9;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1295, 74);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(80, 25);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "County";
+            // 
+            // txtSearchTownC
+            // 
+            this.txtSearchTownC.Location = new System.Drawing.Point(1107, 71);
+            this.txtSearchTownC.Name = "txtSearchTownC";
+            this.txtSearchTownC.Size = new System.Drawing.Size(170, 31);
+            this.txtSearchTownC.TabIndex = 7;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1000, 77);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(101, 25);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "TownCity";
+            // 
+            // txtSearchAdd2
+            // 
+            this.txtSearchAdd2.Location = new System.Drawing.Point(803, 71);
+            this.txtSearchAdd2.Name = "txtSearchAdd2";
+            this.txtSearchAdd2.Size = new System.Drawing.Size(175, 31);
+            this.txtSearchAdd2.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(653, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(144, 25);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "AddressLine2";
+            // 
+            // txtSearchAdd1
+            // 
+            this.txtSearchAdd1.Location = new System.Drawing.Point(443, 71);
+            this.txtSearchAdd1.Name = "txtSearchAdd1";
+            this.txtSearchAdd1.Size = new System.Drawing.Size(185, 31);
+            this.txtSearchAdd1.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(293, 74);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(144, 25);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "AddressLine1";
+            // 
+            // txtSearchName
+            // 
+            this.txtSearchName.Location = new System.Drawing.Point(111, 74);
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.Size = new System.Drawing.Size(161, 31);
+            this.txtSearchName.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(37, 77);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 25);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Name";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnInsert);
             this.groupBox2.Controls.Add(this.btnAmend);
             this.groupBox2.Controls.Add(this.clkDataDelete);
-            this.groupBox2.Controls.Add(this.txtCloseApp);
+            this.groupBox2.Controls.Add(this.btnCloseApp);
             this.groupBox2.Location = new System.Drawing.Point(606, 982);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1537, 146);
@@ -591,133 +707,21 @@ namespace BI_Reporter
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "User Login";
             // 
-            // label10
+            // btnLogin
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(37, 77);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 25);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Name";
+            this.btnLogin.Location = new System.Drawing.Point(184, 243);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(240, 52);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Log In";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // txtSearchName
+            // txtPassword
             // 
-            this.txtSearchName.Location = new System.Drawing.Point(111, 74);
-            this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(161, 31);
-            this.txtSearchName.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(293, 74);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(144, 25);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "AddressLine1";
-            // 
-            // txtSearchAdd1
-            // 
-            this.txtSearchAdd1.Location = new System.Drawing.Point(443, 71);
-            this.txtSearchAdd1.Name = "txtSearchAdd1";
-            this.txtSearchAdd1.Size = new System.Drawing.Size(185, 31);
-            this.txtSearchAdd1.TabIndex = 3;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(653, 74);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(144, 25);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "AddressLine2";
-            // 
-            // txtSearchAdd2
-            // 
-            this.txtSearchAdd2.Location = new System.Drawing.Point(803, 71);
-            this.txtSearchAdd2.Name = "txtSearchAdd2";
-            this.txtSearchAdd2.Size = new System.Drawing.Size(175, 31);
-            this.txtSearchAdd2.TabIndex = 5;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1000, 77);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(101, 25);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "TownCity";
-            // 
-            // txtSearchTownC
-            // 
-            this.txtSearchTownC.Location = new System.Drawing.Point(1107, 71);
-            this.txtSearchTownC.Name = "txtSearchTownC";
-            this.txtSearchTownC.Size = new System.Drawing.Size(170, 31);
-            this.txtSearchTownC.TabIndex = 7;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1295, 74);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(80, 25);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "County";
-            // 
-            // txtSearchCounty
-            // 
-            this.txtSearchCounty.Location = new System.Drawing.Point(1395, 71);
-            this.txtSearchCounty.Name = "txtSearchCounty";
-            this.txtSearchCounty.Size = new System.Drawing.Size(100, 31);
-            this.txtSearchCounty.TabIndex = 9;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1523, 71);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 25);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "Age";
-            // 
-            // txtSearchAge
-            // 
-            this.txtSearchAge.Location = new System.Drawing.Point(1579, 74);
-            this.txtSearchAge.Name = "txtSearchAge";
-            this.txtSearchAge.Size = new System.Drawing.Size(100, 31);
-            this.txtSearchAge.TabIndex = 11;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1703, 77);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 25);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Tel No";
-            // 
-            // txtSearchTelNo
-            // 
-            this.txtSearchTelNo.Location = new System.Drawing.Point(1785, 74);
-            this.txtSearchTelNo.Name = "txtSearchTelNo";
-            this.txtSearchTelNo.Size = new System.Drawing.Size(115, 31);
-            this.txtSearchTelNo.TabIndex = 13;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(43, 77);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(119, 25);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "User Name";
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Location = new System.Drawing.Point(184, 70);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(257, 31);
-            this.txtUserName.TabIndex = 1;
+            this.txtPassword.Location = new System.Drawing.Point(184, 184);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(257, 31);
+            this.txtPassword.TabIndex = 3;
             // 
             // label18
             // 
@@ -728,31 +732,21 @@ namespace BI_Reporter
             this.label18.TabIndex = 2;
             this.label18.Text = "Password";
             // 
-            // txtPassword
+            // txtUserName
             // 
-            this.txtPassword.Location = new System.Drawing.Point(184, 184);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(257, 31);
-            this.txtPassword.TabIndex = 3;
+            this.txtUserName.Location = new System.Drawing.Point(184, 70);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(257, 31);
+            this.txtUserName.TabIndex = 1;
             // 
-            // btnLogin
+            // label17
             // 
-            this.btnLogin.Location = new System.Drawing.Point(184, 243);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(240, 52);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Log In";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(619, 147);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(471, 70);
-            this.btnSearch.TabIndex = 27;
-            this.btnSearch.Text = "Start Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(43, 77);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(119, 25);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "User Name";
             // 
             // Form1
             // 
@@ -792,6 +786,7 @@ namespace BI_Reporter
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -844,10 +839,9 @@ namespace BI_Reporter
         private System.Windows.Forms.DataGridViewTextBoxColumn postCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.Button clkDataDelete;
-        private System.Windows.Forms.Button txtCloseApp;
+        private System.Windows.Forms.Button btnCloseApp;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btnInsert;
@@ -875,6 +869,7 @@ namespace BI_Reporter
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.BindingSource addressDetailsBindingSource1;
     }
 }
 

@@ -42,59 +42,10 @@ namespace BI_Reporter
 
         }
 
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+         /* Method to remove record from the database */      
+         private void clkDataDelete_Click(object sender, EventArgs e)
         {
-                      
-            
-        }
-
-       
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            string caption = "Data entered confirmation";
-             ID = txtID.Text; 
-            Name = txtName.Text;
-            AddressLine1 = txtAddressLine1.Text;
-            AddressLine2 = txtAddressLine2.Text;
-            TownCity = txtTownCity.Text;
-            County = txtCounty.Text;
-            PostCode = txtPostCode.Text;
-            Age = txtAge.Text;
-            TelNo = txtTelNo.Text;
-
-            string connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE;User=AHirst;Password=Coniston125";
-            var sql_Insert = "Insert into SANDBOX_BISE.[dbo].[AddressDetails] (ID,Name, AddressLine1, AddressLine2, TownCity, County, PostCode, Age, TelNo)";
-            sql_Insert += "values(@ID, @Name, @AddressLine1, @AddressLine2, @TownCity, @County, @PostCode,  @Age, @TelNo)";
-            
-            SqlConnection cnn = new SqlConnection(connectionString);
-
-            SqlCommand command = new SqlCommand(sql_Insert, cnn);
-            command.CommandText = sql_Insert;
-            command.Parameters.AddWithValue("@Name", Name);
-            command.Parameters.AddWithValue("@AddressLine1", AddressLine1);
-            command.Parameters.AddWithValue("@AddressLine2", AddressLine2);
-            command.Parameters.AddWithValue("@TownCity", TownCity);
-            command.Parameters.AddWithValue("@County", County);
-            command.Parameters.AddWithValue("@PostCode", PostCode);
-            command.Parameters.AddWithValue("@Age", Age);
-            command.Parameters.AddWithValue("@TelNo", TelNo);
-            cnn.Open();
-            command.ExecuteNonQuery();
-            dataGridView1.Refresh();
-
-            command.Dispose();
-            cnn.Close();
-
-
-            MessageBox.Show($"Data for {Name} Entered",caption,MessageBoxButtons.OK,MessageBoxIcon.Information);
-            
-
-            
-        }
-
-        private void clkDataDelete_Click(object sender, EventArgs e)
-        {
-            ID = txtID.Text;
+            ID = txtID.Text; 
             Name = txtName.Text;
             string message = $"WARNING! - You are Deleting the record for {Name}, do you want to proceed";
             String caption = "Data to be deleted";
@@ -125,7 +76,7 @@ namespace BI_Reporter
             }
         }
 
-        private void txtCloseApp_Click(object sender, EventArgs e)
+        private void btnCloseApp_Click(object sender, EventArgs e)
         {
             string Message = "Do you want to close the application down";
             string caption = "App closure";
@@ -141,51 +92,8 @@ namespace BI_Reporter
         {
             this.clkDataDelete_Click(this, EventArgs.Empty);
         }
-        /* button1_click */
-        private void button1_click(object sender, EventArgs e)
-        {
-
-            string caption = "Data entered confirmation";
-            ID = txtID.Text; 
-            Name = txtName.Text;
-            AddressLine1 = txtAddressLine1.Text;
-            AddressLine2 = txtAddressLine2.Text;
-            TownCity = txtTownCity.Text;
-            County = txtCounty.Text;
-            PostCode = txtPostCode.Text;
-            Age = txtAge.Text;
-            TelNo = txtTelNo.Text;
-
-            string connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE;User=AHirst;Password=Coniston125";
-            var sql_Insert = "Insert into SANDBOX_BISE.[dbo].[AddressDetails] (Name, AddressLine1, AddressLine2, TownCity, County, PostCode, Age, TelNo)";
-            sql_Insert += "values(@Name, @AddressLine1, @AddressLine2, @TownCity, @County, @PostCode,  @Age, @TelNo)";
-
-            SqlConnection cnn = new SqlConnection(connectionString);
-
-            SqlCommand command = new SqlCommand(sql_Insert, cnn);
-            command.CommandText = sql_Insert;
-            command.Parameters.AddWithValue("@Name", Name);
-            command.Parameters.AddWithValue("@AddressLine1", AddressLine1);
-            command.Parameters.AddWithValue("@AddressLine2", AddressLine2);
-            command.Parameters.AddWithValue("@TownCity", TownCity);
-            command.Parameters.AddWithValue("@County", County);
-            command.Parameters.AddWithValue("@PostCode", PostCode);
-            command.Parameters.AddWithValue("@Age", Age);
-            command.Parameters.AddWithValue("@TelNo", TelNo);
-            cnn.Open();
-            command.ExecuteNonQuery();
-
-            command.Dispose();
-            cnn.Close();
-
-
-            MessageBox.Show($"Data for {Name} Entered", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-        }
-
         
-
+        /* Method to insert a new record into the database */
         private void btnInsert_Click(object sender, EventArgs e)
         {
             string caption = "Data entered confirmation";
@@ -226,7 +134,8 @@ namespace BI_Reporter
             MessageBox.Show($"Data for {Name} Entered", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnAmend_Click_1(object sender, EventArgs e)
+        /* Method to amend current selected record */
+        private void btnAmend_Click(object sender, EventArgs e)
         {
             string caption = "Record entry update";
             ID = txtID.Text;
@@ -265,6 +174,8 @@ namespace BI_Reporter
             MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        /* Search method routine */
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
@@ -300,6 +211,7 @@ namespace BI_Reporter
                                 int rowIndex = row.Index;
                                 dataGridView1.Rows[rowIndex].Selected = true;
                                 valueResult = true;
+                               /* this.addressDetailsTableAdapter.Fill(this.bI_Reporter_DataSet.AddressDetails); */
                                 break;
                             }
                             /*   else if ((string)searchList[0] == "")
@@ -317,6 +229,7 @@ namespace BI_Reporter
                         return;
                     }
                 }
+                
                 catch (Exception exc)
                 {
                     MessageBox.Show(exc.Message);
