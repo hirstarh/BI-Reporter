@@ -289,6 +289,10 @@ namespace BI_Reporter
                     string sqlCommand5 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (County LIKE @Search)";
                     SqlCommand command5 = new SqlCommand(sqlCommand5, cnn);
                     command5.Parameters.AddWithValue("@Search", "%" + txtSearchCounty.Text + "%");
+                    SqlDataAdapter socket5 = new SqlDataAdapter(command5);
+                    DataTable dt5 = new DataTable();
+                    socket5.Fill(dt5);
+                    dataGridView1.DataSource = dt5;
 
                     break;
 
@@ -296,12 +300,20 @@ namespace BI_Reporter
                     string sqlCommand6 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (PostCode LIKE @Search)";
                     SqlCommand command6 = new SqlCommand(sqlCommand6, cnn);
                     command6.Parameters.AddWithValue("@Search", "%" + txtSearchAge.Text + "%");
+                    SqlDataAdapter socket6 = new SqlDataAdapter(command6);
+                    DataTable dt6 = new DataTable();
+                    socket6.Fill(dt6);
+                    dataGridView1.DataSource = dt6;
                     break;
 
                 case 7:
                     string sqlCommand7 = "SELECT * FROM [SANDBOX_BISE].[DBO].[AddressDetails] WHERE (TelNo LIKE @Search)";
                     SqlCommand command7 = new SqlCommand(sqlCommand7, cnn);
                     command7.Parameters.AddWithValue("@Search", "%" + txtSearchTelNo.Text + "%");
+                    SqlDataAdapter socket7 = new SqlDataAdapter(command7);
+                    DataTable dt7 = new DataTable();
+                    socket7.Fill(dt7);
+                    dataGridView1.DataSource = dt7;
                     break;
             }
             
