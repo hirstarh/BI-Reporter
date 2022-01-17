@@ -41,13 +41,14 @@ namespace BI_Reporter
             this.addressDetailsTableAdapter.Fill(this.bI_Reporter_DataSet.AddressDetails);
 
         }
-
-        /* Method to remove record from the database */
-        private void clkDataDelete_Click(object sender, EventArgs e)
+        
+        private void DeleteRecord()
         {
-            ID = txtID.Text;
+            int index = dataGridView1.CurrentCell.RowIndex;
+            DataGridViewRow row = dataGridView1.Rows[index];
+            ID = row.Cells[0].Value.ToString();
             Name = txtName.Text;
-            string message = $"WARNING! - You are Deleting the record for {Name}, do you want to proceed";
+            string message = $"WARNING! - You are Deleting the record for {ID}, do you want to proceed";
             String caption = "Data to be deleted";
             string connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE; User=AHirst;Password=Coniston125";
             string deleteSqlRow = "DELETE FROM SANDBOX_BISE.[dbo].[AddressDetails] WHERE ID = @ID";
@@ -72,9 +73,18 @@ namespace BI_Reporter
                 command.Dispose();
                 cnn.Close();
                 this.Form1_Load(this, EventArgs.Empty);
-
+                dataGridView1.DataSource = addressDetailsBindingSource;
             }
         }
+        /* Method to remove record from the database if Delete button clicked */
+        private void clkDataDelete_Click(object sender, EventArgs e)
+        {
+
+            DeleteRecord();
+            
+
+            }
+        
 
         private void btnCloseApp_Click(object sender, EventArgs e)
         {
@@ -91,7 +101,7 @@ namespace BI_Reporter
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            this.clkDataDelete_Click(this, EventArgs.Empty);
+            DeleteRecord();
         }
 
         /* Method to insert a new record into the database */
