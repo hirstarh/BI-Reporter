@@ -11,3 +11,4 @@ C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.csproj
 C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.exe
 C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.pdb
 C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI-Reporter.csproj.AssemblyReference.cache
+C:\Users\hirst\source\repos\BI-Reporter\BI-Reporter\obj\Debug\BI_Reporter.Form2.resources
