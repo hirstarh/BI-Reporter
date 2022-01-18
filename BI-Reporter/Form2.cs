@@ -25,7 +25,8 @@ namespace BI_Reporter
 
         private void button2_Click(object sender, EventArgs e)
         {
-           var result = MessageBox.Show("No user has been registered, do you want to return ?", "User Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+       /* https://www.aspsnippets.com/Articles/Encrypt-data-and-store-in-Database-in-ASPNet-using-C-and-VBNet.aspx */
+            var result = MessageBox.Show("No user has been registered, do you want to return ?", "User Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             
             if (result == DialogResult.Yes)
             {
