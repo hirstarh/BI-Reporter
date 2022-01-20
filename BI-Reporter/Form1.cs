@@ -320,10 +320,10 @@ namespace BI_Reporter
             this.filter_OnSearch(8);
         }
 
-        Form2 init = new Form2();
+        
         private void btnNewUser_Click(object sender, EventArgs e)
         {
-            
+            Form2 init = new Form2();
             init.Show();
             
         }
