@@ -75,14 +75,7 @@ namespace BI_Reporter
 
             command.Dispose();
             cnn.Close();
-
-
-
             
-
-
-
-
 
             if (this.txtNewUser.Text == "")
             {

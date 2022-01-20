@@ -47,15 +47,18 @@ namespace BI_Reporter
 
         private string Decrypt(string cipherText)
         {
+            
             string EncryptionKey = "MAKV2SPBNI99212";
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
 
+            /*Create key for decryption */
             using (Aes encryptor = Aes.Create())
             {
                 Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
                 encryptor.Key = pdb.GetBytes(32);
                 encryptor.IV = pdb.GetBytes(16);
 
+               /* Decrypt and write the text to memory */
                 using (MemoryStream ms = new MemoryStream())
                 {
                     using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
@@ -63,6 +66,7 @@ namespace BI_Reporter
                         cs.Write(cipherBytes, 0, cipherBytes.Length);
                         cs.Close();
                     }
+                    /* Assign the decrypted password from memory to a string */
                     cipherText = Encoding.Unicode.GetString(ms.ToArray());
                 }
             }
@@ -370,6 +374,8 @@ namespace BI_Reporter
             command.Parameters.AddWithValue("@UserName", txtUserName.Text);
             cnn.Open();
             command.ExecuteNonQuery();
+
+            /* Assigning a string to the result of the above SELECT SQL query */
             String input = (string)command.ExecuteScalar();
 
             if (txtUserName.Text == "")
@@ -381,9 +387,6 @@ namespace BI_Reporter
             {
                 MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
-
 
             command.Dispose();
             cnn.Close();
