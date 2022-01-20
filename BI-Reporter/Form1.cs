@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.ComponentModel;
 using System.Data;
@@ -43,7 +44,31 @@ namespace BI_Reporter
             this.addressDetailsTableAdapter.Fill(this.bI_Reporter_DataSet.AddressDetails);
 
         }
-        
+
+        private string Decrypt(string cipherText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
+        }
+
         private void DeleteRecord()
         {
             int index = dataGridView1.CurrentCell.RowIndex;
@@ -326,6 +351,42 @@ namespace BI_Reporter
             Form2 init = new Form2();
             init.Show();
             
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            String message = $"Regretfully your user a/c {txtUserName.Text} is not recognised, do you need to register a new a/c ?";
+            String caption = "User account security";
+            String connectionString;
+            String sqlSearch;
+
+            connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE;User=AHirst;Password=Coniston125";
+            sqlSearch = ("SELECT UserName FROM [SANDBOX_BISE].[dbo].[UserAccounts] where UserName = @UserName");
+
+            SqlConnection cnn = new SqlConnection(connectionString);
+
+            SqlCommand command = new SqlCommand(sqlSearch,cnn);
+            
+            command.Parameters.AddWithValue("@UserName", txtUserName.Text);
+            cnn.Open();
+            command.ExecuteNonQuery();
+            String input = (string)command.ExecuteScalar();
+
+            if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Please enter both your user name and password, thanks", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else if (input != txtUserName.Text)
+            {
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+
+
+            command.Dispose();
+            cnn.Close();
         }
     }
 }

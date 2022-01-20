@@ -50,11 +50,7 @@ namespace BI_Reporter
             return clearText;
         }
 
-            private string Decrypt(string cipherText)
-            {
-            /* To be completed */
-            return cipherText;
-        }
+            
 
         private void btnRegister_Click(object sender, EventArgs e)
         {

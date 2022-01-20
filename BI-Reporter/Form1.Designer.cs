@@ -99,12 +99,12 @@ namespace BI_Reporter
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnNewUser = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.btnNewUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addressDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bI_Reporter_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -736,6 +736,16 @@ namespace BI_Reporter
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "User Login";
             // 
+            // btnNewUser
+            // 
+            this.btnNewUser.Location = new System.Drawing.Point(185, 323);
+            this.btnNewUser.Name = "btnNewUser";
+            this.btnNewUser.Size = new System.Drawing.Size(256, 49);
+            this.btnNewUser.TabIndex = 5;
+            this.btnNewUser.Text = "New User";
+            this.btnNewUser.UseVisualStyleBackColor = true;
+            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
+            // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(185, 248);
@@ -744,6 +754,7 @@ namespace BI_Reporter
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
@@ -776,16 +787,6 @@ namespace BI_Reporter
             this.label17.Size = new System.Drawing.Size(119, 25);
             this.label17.TabIndex = 0;
             this.label17.Text = "User Name";
-            // 
-            // btnNewUser
-            // 
-            this.btnNewUser.Location = new System.Drawing.Point(185, 323);
-            this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(256, 49);
-            this.btnNewUser.TabIndex = 5;
-            this.btnNewUser.Text = "New User";
-            this.btnNewUser.UseVisualStyleBackColor = true;
-            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // Form1
             // 
