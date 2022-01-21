@@ -363,9 +363,11 @@ namespace BI_Reporter
             String caption = "User account security";
             String connectionString;
             String sqlSearch;
+            String userName;
+            String password;
 
             connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE;User=AHirst;Password=Coniston125";
-            sqlSearch = ("SELECT UserName FROM [SANDBOX_BISE].[dbo].[UserAccounts] where UserName = @UserName");
+            sqlSearch = @"SELECT UserName, Password FROM [SANDBOX_BISE].[dbo].[UserAccounts] where UserName = @UserName";
 
             SqlConnection cnn = new SqlConnection(connectionString);
 
@@ -376,17 +378,23 @@ namespace BI_Reporter
             command.ExecuteNonQuery();
 
             /* Assigning a string to the result of the above SELECT SQL query */
-            String input = (string)command.ExecuteScalar();
+            
+            SqlDataReader reader = command.ExecuteReader(); 
+            reader.Read();
+            userName = reader.GetString(0);
+            password = reader.GetString(1);
+               
+            reader.Close();
 
             if (txtUserName.Text == "")
             {
                 MessageBox.Show("Please enter both your user name and password, thanks", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            else if (input != txtUserName.Text)
+           else if (userName != txtUserName.Text)
             {
                 MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            } 
 
             command.Dispose();
             cnn.Close();

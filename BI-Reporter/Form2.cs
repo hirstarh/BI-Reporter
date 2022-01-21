@@ -24,7 +24,7 @@ namespace BI_Reporter
         private string Encrypt(string clearText)
         {
 
-            string EncryptionKey = "MAKV2SPBNI99212";
+            string EncryptionKey = "MAKV4ffPBNI49209";
             byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
 
             using (Aes encryptor = Aes.Create())
