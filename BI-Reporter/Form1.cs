@@ -47,13 +47,15 @@ namespace BI_Reporter
 
         private string Decrypt(string cipherText)
         {
-            
-            string EncryptionKey = "MAKV2SPBNI99212";
+            PaddingMode Padding = PaddingMode.None;
+
+            string EncryptionKey = "MAKV4ffPBNI49209";
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
 
             /*Create key for decryption */
             using (Aes encryptor = Aes.Create())
             {
+                encryptor.Padding = Padding;
                 Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
                 encryptor.Key = pdb.GetBytes(32);
                 encryptor.IV = pdb.GetBytes(16);
@@ -63,13 +65,20 @@ namespace BI_Reporter
                 {
                     using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
                     {
-                        cs.Write(cipherBytes, 0, cipherBytes.Length);
-                        cs.Close();
+
+                        
+                            
+                         cs.Write(cipherBytes, 0, cipherBytes.Length); 
+                         cs.Close(); 
                     }
                     /* Assign the decrypted password from memory to a string */
-                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                     cipherText = Encoding.Unicode.GetString(ms.ToArray()); 
+                    
+                    
+                    
                 }
             }
+            
             return cipherText;
         }
 
@@ -365,37 +374,47 @@ namespace BI_Reporter
             String sqlSearch;
             String userName;
             String password;
+            String clearPassword;
+            Form2 cePassword = new Form2();
 
             connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE;User=AHirst;Password=Coniston125";
             sqlSearch = @"SELECT UserName, Password FROM [SANDBOX_BISE].[dbo].[UserAccounts] where UserName = @UserName";
 
             SqlConnection cnn = new SqlConnection(connectionString);
 
-            SqlCommand command = new SqlCommand(sqlSearch,cnn);
-            
+            SqlCommand command = new SqlCommand(sqlSearch, cnn);
+
             command.Parameters.AddWithValue("@UserName", txtUserName.Text);
             cnn.Open();
             command.ExecuteNonQuery();
 
             /* Assigning a string to the result of the above SELECT SQL query */
-            
-            SqlDataReader reader = command.ExecuteReader(); 
+
+            SqlDataReader reader = command.ExecuteReader();
             reader.Read();
             userName = reader.GetString(0);
             password = reader.GetString(1);
-               
-            reader.Close();
+            clearPassword = Decrypt(password);
+            string enPassword = txtPassword.Text;
+                      
+            
+            MessageBox.Show($"User:- {userName} has a decrypted password of {clearPassword} and a inputted password of {enPassword}", "Password Decryption", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+
+
+            if (clearPassword == txtPassword.Text)
+            {
+                MessageBox.Show($"User {userName} and password Matched", "Password authentication", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
 
             if (txtUserName.Text == "")
             {
                 MessageBox.Show("Please enter both your user name and password, thanks", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-           else if (userName != txtUserName.Text)
-            {
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } 
 
+            reader.Close();
             command.Dispose();
             cnn.Close();
         }
