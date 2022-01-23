@@ -57,10 +57,19 @@ namespace BI_Reporter
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            if (this.txtNewUser.Text == "")
+            {
 
-            string password = txtNewPassword.Text;
-            
+                var result = MessageBox.Show("No user has been registered, do you want to return ?", "User Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                else
+                    return;
+            }
+                
             String connectionString;
             String sqlInsert;
 
@@ -78,22 +87,12 @@ namespace BI_Reporter
 
             command.Dispose();
             cnn.Close();
+
+                MessageBox.Show("New user registered", "User Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNewUser.Text = "";
+                txtNewPassword.Text = "";
+                this.Close();
             
-
-            if (this.txtNewUser.Text == "")
-            {
-
-                var result = MessageBox.Show("No user has been registered, do you want to return ?", "User Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    this.Close();
-                }
-
-                return;
-            }
-            else
-            MessageBox.Show("New user registered", "User Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnCancelReg_Click(object sender, EventArgs e)

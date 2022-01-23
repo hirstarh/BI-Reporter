@@ -370,6 +370,14 @@ namespace BI_Reporter
         {
             String message = $"Regretfully your user a/c {txtUserName.Text} is not recognised, do you need to register a new a/c ?";
             String caption = "User account security";
+
+            if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Please enter both your user name and password, thanks", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
             String connectionString;
             String sqlSearch;
             String userName;
@@ -377,46 +385,58 @@ namespace BI_Reporter
             String clearPassword;
             Form2 cePassword = new Form2();
 
-            connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE;User=AHirst;Password=Coniston125";
-            sqlSearch = @"SELECT UserName, Password FROM [SANDBOX_BISE].[dbo].[UserAccounts] where UserName = @UserName";
-
-            SqlConnection cnn = new SqlConnection(connectionString);
-
-            SqlCommand command = new SqlCommand(sqlSearch, cnn);
-
-            command.Parameters.AddWithValue("@UserName", txtUserName.Text);
-            cnn.Open();
-            command.ExecuteNonQuery();
-
-            /* Assigning a string to the result of the above SELECT SQL query */
-
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-            userName = reader.GetString(0);
-            password = reader.GetString(1);
-            clearPassword = Decrypt(password);
-            string enPassword = txtPassword.Text;
-                      
-            
-            MessageBox.Show($"User:- {userName} has a decrypted password of {clearPassword} and a inputted password of {enPassword}", "Password Decryption", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-
-
-            if (clearPassword == txtPassword.Text)
+            try
             {
-                MessageBox.Show($"User {userName} and password Matched", "Password authentication", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                connectionString = @"Data Source=agem-se1.agem-bisenhs.org.uk;Database=SANDBOX_BISE;User=AHirst;Password=Coniston125";
+                sqlSearch = @"SELECT UserName, Password FROM [SANDBOX_BISE].[dbo].[UserAccounts] where UserName = @UserName";
 
+                SqlConnection cnn = new SqlConnection(connectionString);
 
-            if (txtUserName.Text == "")
-            {
-                MessageBox.Show("Please enter both your user name and password, thanks", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                SqlCommand command = new SqlCommand(sqlSearch, cnn);
 
+                command.Parameters.AddWithValue("@UserName", txtUserName.Text);
+                cnn.Open();
+                command.ExecuteNonQuery();
+
+                /* Assigning a string to the result of the above SELECT SQL query */
+
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                userName = reader.GetString(0);
+                password = reader.GetString(1);
+                clearPassword = Decrypt(password);
+                string enPassword = txtPassword.Text;
+                
 
             reader.Close();
             command.Dispose();
-            cnn.Close();
+                cnn.Close();
+
+                if (clearPassword == txtPassword.Text)
+                {
+                    MessageBox.Show($"User {userName} and password Matched", "Password authentication", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtUserName.Text = "";
+                    txtPassword.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show($"Sorry, User {userName} or password have not matched", "Password authentication", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+
+            catch(InvalidOperationException ex)
+            {
+                string error = $"The User {txtUserName.Text} was not recognised in the database, do you need to register a new User A/C";
+
+                    MessageBox.Show(error,"User A/C error",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                    txtUserName.Text = "";
+                     txtPassword.Text = "";
+                return;
+
+            }
+            
         }
+
     }
 }
